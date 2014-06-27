@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <select class="tech" name="order[disk][1][content]" id="svtech2" data-enablecheckbox="false" onChange="document.callUpdate(this, 'svtech2')">
+<option  value="1 TB 7200 RPM SATA HD"  price="0.00" setup="$0.00">
+1 TB 7200 RPM SATA HD
+</option>
+<option  value="1.5 TB 7200 RPM SATA HD"  price="35.00" setup="$0.00">
+1.5 TB 7200 RPM SATA HD
+
+<strong> - add $35.00/Mo</strong>
+</option>
+<option  value="2 TB 7200 RPM SATA HD"  price="40.00" setup="$0.00">
+2 TB 7200 RPM SATA HD
+
+<strong> - add $40.00/Mo</strong>
+</option>
+<option  value="3 TB 7200 RPM SATA HD"  price="50.00" setup="$0.00">
+3 TB 7200 RPM SATA HD
+
+<strong> - add $50.00/Mo</strong>
+</option>
+<option  value="120 GB Solid State HD"  price="45.00" setup="$0.00">
+120 GB Solid State HD
+
+<strong> - add $45.00/Mo</strong>
+</option>
+<option  value="240 GB Solid State HD"  price="60.00" setup="$0.00">
+240 GB Solid State HD
+
+<strong> - add $60.00/Mo</strong>
+</option>
+</select>
+
+<div id='monthlycost'></div>
+<div id='firstpayment'></div>
+<script  type="text/javascript">  
+    var TotalPrice={};
+document.callUpdate=function(selectBox, section)
+{
+    var selectedOption = selectBox.options[selectBox.selectedIndex]; //need to somehow access the price of the selected option.
+
+    price= parseInt(selectedOption.getAttribute('price'));
+    TotalPrice[section] = price;
+
+    var total=0;
+    for(key in TotalPrice)
+    {
+        total = total + TotalPrice[key];
+    }
+
+    $("#monthlycost").html("$" + total);
+    $("#firstpayment").html("$" + total);
+}
+    
+    </script> 
+    </body>
+</html>
